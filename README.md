@@ -1,3 +1,4 @@
+<img width="1841" height="957" alt="yoooooooo weather" src="https://github.com/user-attachments/assets/9097af78-3122-47d3-9009-79480d48cf5a" />
 #  Weather App
 
 A simple and responsive **Weather App** built with HTML, CSS, and JavaScript.  
@@ -23,10 +24,9 @@ It allows users to search for a city and view its current weather information th
 
 ##  Preview
 
-Add a screenshot of your website here:
-
 ```text
-![Weather App Preview](screenshot.png)
+![Weather App Preview](weatherapp.png)<img width="1841" height="957" alt="weatherapp" src="https://github.com/user-attachments/assets/e50243cd-8423-4caa-9c8e-293aa72d3881" />
+
 ```
 
 ##  How to Run
