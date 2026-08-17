@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .card {
+            background: white;
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 320px;
+        }
+
+        input {
+            padding: 8px;
+            width: 65%;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 8px 14px;
+            border: none;
+            background: #4a90e2;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #357ab8;
+        }
+
+        .radius {
+            margin-top: 20px
+        }
+
+        .temp {
+            font-size: 48px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <h2>Weather Forecast</h2>
+        <input type="text" id="city" placeholder="Enter city name">
+        <button onclick="getWeather()">Search</button>
+        <div class="result" id="result"></div>
+    </div>
+    <script>
+        const weatherCodes = {
+            0: "Clear sky",
+            1: "Mainly clear",
+            2: "Partly cloudy",
+            3: "Overcast",
+            45: "Fog",
+            48: "Depositing rime fog",
+            51: "Light drizzle",
+            61: "Slight rain",
+            63: "Moderate rain",
+            65: "Heavy rain",
+            71: "Slight snow",
+            80: "Rain showers",
+            95: "Thunderstorm"
+        };
+
+        async function getWeather() {
+            const city = document.getElementById("city").value;
+            const resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = "Loading...";
+
+            try {
+                // Step 1: get coordinates for the city
+                const geoRes = await fetch(
+                    `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(city)}&count=1`
+                );
+                const geoData = await geoRes.json();
+                if (!geoData.results) {
+                    resultDiv.innerHTML = "City not found.";
+                    return;
+                }
+
+                const place = geoData.results[0];
+                const lat = place.latitude;
+                const lon = place.longitude;
+                // Step 2: get weather for those coordinates
+                const weatherRes = await fetch(
+                    `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`
+                );
+                const weatherData = await weatherRes.json();
+                const current = weatherData.current_weather;
+                const description = weatherCodes[current.weathercode] || "Unknown";
+
+                resultDiv.innerHTML = `
+                    <div class="temp">${current.temperature}&deg;C</div>
+                    <div>${description}</div>
+                    <div>Wind: ${current.windspeed} km/h</div>
+                    <div>${place.name}, ${place.country || ""}</div>
+                    `;
+            } catch (err) {
+                resultDiv.innerHTML = "Error fetching weather.";
+            }
+        }
+    </script>
+</body>
+
+</html>
