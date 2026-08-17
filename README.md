@@ -47,11 +47,10 @@ That's it!
 
 ```text
 weather-app/
-│
-├── index.html
-├── style.css
-├── script.js
-└── README.md
+index.html
+style.css
+script.js
+README.md
 ```
 
 ## What I Learned
