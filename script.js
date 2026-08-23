@@ -20,9 +20,6 @@ const weatherCodes = {
     82: "Heavy rain showers",
     95: "Thunderstorm"
 };
-
-
-// Your city database
 const nearbyCities = [
 
     {
