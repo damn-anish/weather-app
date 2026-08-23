@@ -1,4 +1,3 @@
-// Mapping Open-Meteo weather codes
 const weatherCodes = {
     0: "Clear sky",
     1: "Mainly clear",
@@ -96,9 +95,6 @@ window.addEventListener("DOMContentLoaded", () => {
     useMyLocation(true);
 
 });
-
-
-// Calculate distance between two places
 function haversineKm(lat1, lon1, lat2, lon2) {
 
     const toRad = (deg) => deg * Math.PI / 180;
@@ -118,8 +114,6 @@ function haversineKm(lat1, lon1, lat2, lon2) {
 
 }
 
-
-// Find nearest cities
 function getNearestCities(lat, lon, count = 5) {
 
     return nearbyCities
@@ -144,8 +138,6 @@ function getNearestCities(lat, lon, count = 5) {
 
 }
 
-
-// Show nearby cities
 function renderNearbyFeed(lat, lon) {
 
     const cities = getNearestCities(lat, lon);
@@ -198,9 +190,6 @@ function renderNearbyFeed(lat, lon) {
     nearbyDiv.appendChild(list);
 
 }
-
-
-// Search weather using city name
 async function getWeather() {
 
     const city =
@@ -267,9 +256,6 @@ async function getWeather() {
     }
 
 }
-
-
-// Get user's location
 function useMyLocation(silent = false) {
 
     if (!navigator.geolocation) {
