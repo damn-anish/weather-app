@@ -2,7 +2,7 @@
 
 **Weather App**
 
-I built this easy to use and fast responding Weather app which uses precise latitude and longitude (api) of your location and gives the best weather outcome possible. We can also manually type our city name and get the weather forecast. 
+Built this weather app to be fast and simple, it grabs your exact location and pulls up the current forecast instantly, you can also just type in a city name if you'd rather search manually. 
 
 **FEATURES**
 
