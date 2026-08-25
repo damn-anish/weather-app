@@ -19,6 +19,9 @@ const weatherCodes = {
     82: "Heavy rain showers",
     95: "Thunderstorm"
 };
+
+
+
 const nearbyCities = [
 
     {
@@ -78,6 +81,7 @@ const nearbyCities = [
     { name: "Barre", country: "USA", lat: 44.1970, lon: -72.5020 },
     { name: "Plattsburgh", country: "USA", lat: 44.6995, lon: -73.4529 },
     { name: "Rutland", country: "USA", lat: 43.6106, lon: -72.9726 }
+    
 
 ];
         
@@ -95,6 +99,9 @@ window.addEventListener("DOMContentLoaded", () => {
     useMyLocation(true);
 
 });
+
+
+
 function haversineKm(lat1, lon1, lat2, lon2) {
 
     const toRad = (deg) => deg * Math.PI / 180;
@@ -137,6 +144,8 @@ function getNearestCities(lat, lon, count = 5) {
         .slice(0, count);
 
 }
+
+
 
 function renderNearbyFeed(lat, lon) {
 
@@ -190,6 +199,9 @@ function renderNearbyFeed(lat, lon) {
     nearbyDiv.appendChild(list);
 
 }
+
+
+
 async function getWeather() {
 
     const city =
@@ -256,6 +268,9 @@ async function getWeather() {
     }
 
 }
+
+
+
 function useMyLocation(silent = false) {
 
     if (!navigator.geolocation) {
@@ -295,38 +310,25 @@ function useMyLocation(silent = false) {
             try {
 
                 const rev = await fetch(
-                    `https://geocoding-api.open-meteo.com/v1/reverse?latitude=${latitude}&longitude=${longitude}&count=1`
+                    `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`
                 );
+                if (!rev.ok) throw new Error(`Reverse geocode failed: ${rev.status}`);
+                const revData = await rev.json();
 
 
-                const revData =
-                    await rev.json();
 
+                const cityName = revData.city || revData.locality || revData.principalSubdivision;
 
-                if (
-                    revData.results &&
-                    revData.results.length > 0
-                ) {
+                  if (cityName) {
+                    placeName = `${cityName}, ${revData.countryName}`;
+                  }
 
-                    const place =
-                        revData.results[0];
-
-
-                    placeName =
-                        `${place.name}, ${place.country || ""}`;
-
-                }
 
             } catch (error) {
-
-                console.log(
-                    "Couldn't get place name"
-                );
-
+                console.log("Couldn't get place name", error);
             }
-
-
-            await showWeather(
+ 
+           await showWeather(
                 latitude,
                 longitude,
                 placeName
@@ -345,7 +347,7 @@ function useMyLocation(silent = false) {
 
             if (silent) {
 
-                resultDiv.innerHTML = "";
+                resultDiv.innerHTML = ' <div>Enter a city or tap "Use My Location" to get started.</div>';
 
                 return;
             }
