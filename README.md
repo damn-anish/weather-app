@@ -18,10 +18,10 @@ Fast and simple to use
 
 ##  Built With
 
-- **HTML** – Structure of the website
-- **CSS** – Styling, layout, animations, and responsiveness
-- **JavaScript** – Weather data, search functionality, and interactions
-- **Weather API** – Fetches real-time weather information
+**HTML** – Structure of the website
+**CSS** – Styling, layout, animations, and responsiveness
+**JavaScript** – Weather data, search functionality, and interactions
+**Weather API** – Fetches real-time weather information
 
 ##  About
 
