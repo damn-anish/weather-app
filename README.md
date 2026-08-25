@@ -2,8 +2,7 @@
 
 **Weather App**
 
-A simple and responsive **Weather App** built with HTML, CSS, and JavaScript.  
-It allows users to search for a city and view its current weather information through a clean and colorful interface.
+I built this easy to use and fast responding Weather app which uses precise latitude and longitude (api) of your location and gives the best weather outcome possible. We can also manually type our city name and get the weather forecast. 
 
 **Features**
 Search weather by city
