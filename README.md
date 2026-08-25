@@ -1,4 +1,5 @@
-<img width="1918" height="982" alt="Screenshot 2026-08-23 232002" src="https://github.com/user-attachments/assets/73d8ae42-bb3f-4e31-ba6b-48b1f0ee6e14" />
+<img width="1801" height="926" alt="Screenshot 2026-08-25 231910" src="https://github.com/user-attachments/assets/24f986dd-0e16-4832-82f9-71988173b3fe" />
+
 
 #  Weather App
 
