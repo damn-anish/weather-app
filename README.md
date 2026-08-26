@@ -1,19 +1,19 @@
 <img width="1801" height="926" alt="Screenshot 2026-08-25 231910" src="https://github.com/user-attachments/assets/24f986dd-0e16-4832-82f9-71988173b3fe" />
 
-# Weather App
+**Weather App**
 
 just a small weather app i built for fun. type a city and it shows you the current weather, or hit "use my location" and it'll try to figure out where you are automatically.
 
 live here: https://damn-anish.github.io/weather-app/
 
-## what it does
+**What it does**
 
  search any city and get current temp, wind speed, and conditions
  "use my location" button for instant weather without typing
  shows a row of nearby cities you can tap through
  works on phone and desktop
 
-## built with
+**Built with**
 
 plain HTML/CSS/JS, no frameworks, no build step
 [open-meteo](https://open-meteo.com/) for weather + geocoding (free, no api key needed)
