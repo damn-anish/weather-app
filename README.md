@@ -6,7 +6,7 @@ just a small weather app i built for fun. type a city and it shows you the curre
 
 live here: https://damn-anish.github.io/weather-app/
 
-**What it does**
+**FEATURES**
 
  search any city and get current temp, wind speed, and conditions
  "use my location" button for instant weather without typing
