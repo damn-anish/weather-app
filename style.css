@@ -153,3 +153,27 @@ button:hover {
         font-size: 40px;
     }
 }
+
+
+#location-notice {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    z-index: 99999 !important;
+    background: linear-gradient(90deg, #fff3cd, #ffe69c);
+    color: #664d03;
+    border-bottom: 2px solid #ffca2c;
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: left;
+    font-family: system-ui, -apple-system, sans-serif;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+    body {
+
+    padding-top: 60px;
+}
